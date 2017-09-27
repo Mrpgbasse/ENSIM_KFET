@@ -6,4 +6,5 @@ package com.daumont.ensim.kfet.activity;
 
 public class TEST_GIT {
     //balablablabla
+    //blablabla 2
 }
