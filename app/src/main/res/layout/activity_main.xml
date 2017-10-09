@@ -28,6 +28,7 @@
         android:layout_height="@dimen/standard_45"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/standard_21"
+
         app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
     <android.support.design.widget.FloatingActionButton
