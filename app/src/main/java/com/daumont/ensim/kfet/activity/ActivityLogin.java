@@ -2,7 +2,6 @@ package com.daumont.ensim.kfet.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.daumont.ensim.kfet.Methodes;
-import com.daumont.ensim.kfet.database.Table_user_online;
-import com.daumont.ensim.kfet.modele.User;
 import com.daumont.ensim.kfet.R;
 
 /**
@@ -32,14 +28,13 @@ public class ActivityLogin extends AppCompatActivity {
     private EditText editText_login, editText_password;
     private ProgressDialog mProgressDialog;
     //BDD
-    private Table_user_online table_user_online;
+   // private Table_user_online table_user_online;
 
     //Autres
     private String login, password;
     private int nb_essai_mot_de_passe = 0;
     private int id_user;
     private Activity activity;
-    private User user;
 
 
     /**
@@ -61,7 +56,7 @@ public class ActivityLogin extends AppCompatActivity {
         mProgressDialog = new ProgressDialog(this);
 
         //DATABASE
-        table_user_online = new Table_user_online(this);
+       // table_user_online = new Table_user_online(this);
 
 
         //Listener sur bouton
@@ -97,21 +92,21 @@ public class ActivityLogin extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            mProgressDialog.setTitle("Veuillez patienter");
+           /* mProgressDialog.setTitle("Veuillez patienter");
             mProgressDialog.setMessage("Connexion en cours...");
             mProgressDialog.setCancelable(false);
             mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            mProgressDialog.show();*/
 
         }
 
         @Override
         protected Void doInBackground(Void... params) {
 
-            id_user = table_user_online.connexion_user(login, password);
+         /*   id_user = table_user_online.connexion_user(login, password);
             if (id_user != -1) {
                 user = table_user_online.get_user(id_user);
-            }
+            }*/
 
 
 
@@ -120,7 +115,7 @@ public class ActivityLogin extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void result) {
-            //Recuperation de l'id ou non de l'utilisateur
+           /* //Recuperation de l'id ou non de l'utilisateur
             if (id_user != -1) {//si on recupere un id pour l'utilisateur
                 mProgressDialog.hide();
                 if (user.getType().equals("admin")) {//on charge une session admin
@@ -152,7 +147,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
 
-            }
+            }*/
         }
     }
 

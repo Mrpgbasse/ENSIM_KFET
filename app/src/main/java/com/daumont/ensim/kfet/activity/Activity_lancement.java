@@ -6,16 +6,9 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.daumont.ensim.kfet.Methodes;
-import com.daumont.ensim.kfet.database.TableProduit;
-import com.daumont.ensim.kfet.database.TableUserNew;
-import com.daumont.ensim.kfet.database.Table_cd_online;
-import com.daumont.ensim.kfet.database.Table_user_online;
 import com.daumont.ensim.kfet.R;
-import com.daumont.ensim.kfet.modele.Produit;
-import com.daumont.ensim.kfet.modele.User_new;
 
 
 /**
@@ -33,8 +26,6 @@ public class Activity_lancement extends AppCompatActivity {
     /**
      * Atributs
      */
-    private Table_user_online table_user_online;
-    private Table_cd_online table_cd_online;
 
     /**
      * Création de l'activité
@@ -63,8 +54,7 @@ public class Activity_lancement extends AppCompatActivity {
         //On test si il y a une connexion internet de disponible
         if (Methodes.internet_diponible(this)) {
             //réveil de la base de donnéese BACK4APP
-            table_user_online = new Table_user_online(this);
-            table_cd_online = new Table_cd_online(this);
+
             //Table_emprunt table_emprunt = new Table_emprunt(this);
             // table_emprunt.add_emprunt(new Emprunt(100,101,101));
 

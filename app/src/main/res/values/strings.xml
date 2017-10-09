@@ -108,4 +108,5 @@
     <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
     <string name="title_activity_details_utilisateur">Activity_details_utilisateur</string>
     <string name="title_activity_user">Activity_user</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

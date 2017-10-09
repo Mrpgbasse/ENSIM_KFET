@@ -24,12 +24,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import com.daumont.ensim.kfet.database.Table_cd_online;
-import com.daumont.ensim.kfet.database.Table_emprunt;
-import com.daumont.ensim.kfet.database.Table_user_online;
-import com.daumont.ensim.kfet.modele.CD;
 import com.daumont.ensim.kfet.modele.Emprunt;
-import com.daumont.ensim.kfet.modele.User;
 import com.daumont.ensim.kfet.R;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -65,20 +60,16 @@ public class Activity_administrateur extends AppCompatActivity {
     private ArrayList<HashMap<String, String>> listItem_cd_user = new ArrayList<>();
     private ArrayList<HashMap<String, String>> listItem_demande_emprunt = new ArrayList<>();
     private ArrayList<Emprunt> list_demande_emprunt;
-    private ArrayList<CD> list_cd, list_cd_utilisateur;
-    private ArrayList<User> list_user;
+
 
     //base de données
-    private Table_cd_online table_cd_online;
-    private Table_user_online table_user_online;
-    private Table_emprunt table_emprunt;
 
     //autres
     private int position_vue;
     private String string_id_user;
     private Activity activity;
     private String etat_notif;
-    private User user;
+
 
     /**
      * Listener sur le bouton d'onglet
@@ -144,9 +135,6 @@ public class Activity_administrateur extends AppCompatActivity {
         }
 
         //Initialisation bdd
-        table_user_online = new Table_user_online(this);
-        table_cd_online = new Table_cd_online(this);
-        table_emprunt = new Table_emprunt(this);
 
         //Initialisation variables
         listView.setNestedScrollingEnabled(true);
@@ -167,22 +155,22 @@ public class Activity_administrateur extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (position_vue == 2 || position_vue == 3) {
-                    Intent i = new Intent(Activity_administrateur.this, Activity_rechercher_artiste.class);
+                   /* Intent i = new Intent(Activity_administrateur.this, Activity_rechercher_artiste.class);
                     Bundle objetbunble = new Bundle();
                     objetbunble.putString("id_user", string_id_user);
                     i.putExtras(objetbunble);
                     Activity_administrateur.this.startActivity(i);
                     overridePendingTransition(R.anim.pull_in, R.anim.push_out);
-                    finish();
+                    finish();*/
                 } else {
                     if (position_vue == 4) {
-                        Intent i = new Intent(Activity_administrateur.this, Activity_ajouter_utilisateur.class);
+                        /*Intent i = new Intent(Activity_administrateur.this, Activity_ajouter_utilisateur.class);
                         Bundle objetbunble = new Bundle();
                         objetbunble.putString("id_user", string_id_user);
                         i.putExtras(objetbunble);
                         Activity_administrateur.this.startActivity(i);
                         overridePendingTransition(R.anim.pull_in, R.anim.push_out);
-                        finish();
+                        finish();*/
                     } else {
                         affichage_demande_emprunt();
                     }
@@ -199,22 +187,22 @@ public class Activity_administrateur extends AppCompatActivity {
                         .getItemAtPosition(position);
                 if(!map.get("id").equals("null")){
                     if (position_vue == 2 || position_vue == 3) {
-                        Intent i = new Intent(Activity_administrateur.this, Activity_details_cd.class);
+                       /* Intent i = new Intent(Activity_administrateur.this, Activity_details_cd.class);
                         Bundle objetbunble = new Bundle();
                         objetbunble.putString("id_cd", map.get("id"));
                         objetbunble.putString("id_user", "" + string_id_user);
                         i.putExtras(objetbunble);
                         Activity_administrateur.this.startActivity(i);
                         overridePendingTransition(R.anim.pull_in, R.anim.push_out);
-                        finish();
+                        finish();*/
                     } else {
-                        Intent i = new Intent(Activity_administrateur.this, Activity_details_utilisateur.class);
+                        /*Intent i = new Intent(Activity_administrateur.this, Activity_details_utilisateur.class);
                         Bundle objetbunble = new Bundle();
                         objetbunble.putString("id_user_select", "" + map.get("id"));
                         objetbunble.putString("id_user", "" + string_id_user);
                         i.putExtras(objetbunble);
                         Activity_administrateur.this.startActivity(i);
-                        overridePendingTransition(R.anim.pull_in, R.anim.push_out);
+                        overridePendingTransition(R.anim.pull_in, R.anim.push_out);*/
                     }
                 }
 
@@ -228,12 +216,12 @@ public class Activity_administrateur extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_modifier_mot_de_passe:
-                        Intent i = new Intent(Activity_administrateur.this, Activity_modifier_profil.class);
+                       /* Intent i = new Intent(Activity_administrateur.this, Activity_modifier_profil.class);
                         Bundle objetbunble = new Bundle();
                         objetbunble.putString("id_user", string_id_user);
                         i.putExtras(objetbunble);
                         Activity_administrateur.this.startActivity(i);
-                        overridePendingTransition(R.anim.pull_in, R.anim.push_out);
+                        overridePendingTransition(R.anim.pull_in, R.anim.push_out);*/
                         return true;
                     default:
                         return false;
@@ -247,13 +235,13 @@ public class Activity_administrateur extends AppCompatActivity {
         button_emprunter_un_cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Activity_administrateur.this, Activity_emprunter_cd.class);
+               /* Intent i = new Intent(Activity_administrateur.this, Activity_emprunter_cd.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("id_user", string_id_user);
                 i.putExtras(objetbunble);
                 Activity_administrateur.this.startActivity(i);
                 overridePendingTransition(R.anim.pull_in, R.anim.push_out);
-                finish();
+                finish();*/
             }
         });
         button_rendre_cd.setOnClickListener(new View.OnClickListener() {
@@ -271,12 +259,12 @@ public class Activity_administrateur extends AppCompatActivity {
         button_ajouter_cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Activity_administrateur.this, Activity_rechercher_artiste.class);
+                /*Intent i = new Intent(Activity_administrateur.this, Activity_rechercher_artiste.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("id_user", string_id_user);
                 i.putExtras(objetbunble);
                 Activity_administrateur.this.startActivity(i);
-                overridePendingTransition(R.anim.pull_in, R.anim.push_out);
+                overridePendingTransition(R.anim.pull_in, R.anim.push_out);*/
             }
         });
         button_voir_demande_emprunt.setOnClickListener(new View.OnClickListener() {
@@ -384,10 +372,10 @@ public class Activity_administrateur extends AppCompatActivity {
         builder.setMessage("Vous allez être déconnecté. Voulez-vous continuer ?")
                 .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(Activity_administrateur.this, Activity_identifiant.class);
+                        /*Intent intent = new Intent(Activity_administrateur.this, Activity_identifiant.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.pull_in_return, R.anim.push_out_return);
-                        finish();
+                        finish();*/
                     }
                 })
                 .setNegativeButton("Non", new DialogInterface.OnClickListener() {
@@ -401,73 +389,7 @@ public class Activity_administrateur extends AppCompatActivity {
 
     public void affichage_demande_emprunt() {
 
-        int taille = table_emprunt.demande_emprunt_size(Integer.parseInt(string_id_user));
-        if (list_demande_emprunt.size() != taille) {
-            //On vide le contenu
-            list_demande_emprunt.clear();
-            listItem_demande_emprunt.clear();
-            //on va mettre à jour la list de demande d'emprunt
-            list_demande_emprunt = table_emprunt.demande_emprunt(Integer.parseInt(string_id_user));
-            for (int i = 0; i < list_demande_emprunt.size(); i++) {
-                map_demande_emprunt = new HashMap<>();
-                map_demande_emprunt.put("id", "" + list_demande_emprunt.get(i).getId_emprunt());
-                User user_demandeur = table_user_online.get_user(list_demande_emprunt.get(i).getId_emprunteur());
-                CD cd_tmp = table_cd_online.get_cd(list_demande_emprunt.get(i).getQr_code());
-                map_demande_emprunt.put("titre", cd_tmp.getNom_artist() + " - " + cd_tmp.getNom_album());
-                map_demande_emprunt.put("demandeur", "Demande envoyée par " + user_demandeur.getIdentifiant());
-                map_demande_emprunt.put("image", cd_tmp.getImage());
-                listItem_demande_emprunt.add(map_demande_emprunt);
-            }
-        }
-        if (list_demande_emprunt.size() == 0) {
-            info_dialog("Aucune demande");
-        } else {
-            LayoutInflater factory = LayoutInflater.from(Activity_administrateur.this);
-            final View alertDialogView = factory.inflate(R.layout.dialog_demande_emprunt, null);
-            AlertDialog.Builder adb = new AlertDialog.Builder(Activity_administrateur.this);
-            Button button_close = (Button) alertDialogView.findViewById(R.id.button_close);
-            final ListView listView_emprunt = (ListView) alertDialogView.findViewById(R.id.listView_emprunt);
-            adb.setView(alertDialogView);
-            listView_emprunt.setAdapter(null);
-            SimpleAdapter mSchedule = new SimpleAdapter(this.getBaseContext(),
-                    listItem_demande_emprunt, R.layout.layout_cd_demande_emprunt, new String[]{"titre"}, new int[]{R.id.textView_info_cd}) {
-                public View getView(int position, View convertView, ViewGroup parent) {
 
-                    HashMap<String, String> map = (HashMap<String, String>) listView_emprunt
-                            .getItemAtPosition(position);
-                    final String url_image = map.get("image");
-
-                    View view = super.getView(position, convertView, parent);
-                    ImageView image_view_cd = (ImageView) view.findViewById(R.id.image_view_cd);
-                    TextView textView_demandeur = (TextView) view.findViewById(R.id.textView_demandeur);
-                    textView_demandeur.setText(map.get("demandeur"));
-                    Picasso.with(image_view_cd.getContext()).load(url_image).centerCrop().fit().into(image_view_cd);
-                    return view;
-                }
-            };
-            listView_emprunt.setAdapter(mSchedule);
-
-            listView_emprunt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                public void onItemClick(AdapterView<?> a, View v, int position,
-                                        long id) {
-                    HashMap<String, String> map = (HashMap<String, String>) listView_emprunt
-                            .getItemAtPosition(position);
-                    String id_emprunt = map.get("id");
-                    confirmation(id_emprunt, alertDialog);
-                }
-
-            });
-            TextView textTitre;
-            textTitre = (TextView) alertDialogView.findViewById(R.id.textTitre);
-            textTitre.setText("Demande de prêt");
-            alertDialog = adb.show();
-            button_close.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    alertDialog.dismiss();
-                }
-            });
-        }
     }
 
     /**
@@ -477,31 +399,7 @@ public class Activity_administrateur extends AppCompatActivity {
      * @param alertDialog
      */
     public void confirmation(final String p_id_emprunt, final AlertDialog alertDialog) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(Activity_administrateur.this);
-        builder.setMessage("Voulez vous validez l'emprunt ?")
-                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Emprunt emprunt_tmp = table_emprunt.get_emprunt(Integer.parseInt(p_id_emprunt));
-                        emprunt_tmp.setEtat_emprunt("preter");
-                        table_emprunt.changer_etat_emprunt(emprunt_tmp);
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(Activity_administrateur.this);
-                        builder.setMessage("Emprunt accepté.\nN'oubliez pas de donner le CD.")
-                                .setPositiveButton("Fermer", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        alertDialog.dismiss();
-                                    }
-                                });
-                        builder.create();
-                        builder.show();
-                    }
-                })
-                .setNegativeButton("Non", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-                });
-        builder.create();
-        builder.show();
     }
 
     /**
@@ -535,11 +433,7 @@ public class Activity_administrateur extends AppCompatActivity {
 
                 info_dialog("Aucun QRCode détecté");
             } else {
-                if (table_emprunt.album_terminer_emprunt(result.getContents(), string_id_user)) {
-                    info_dialog("Numéro album : " + result.getContents() + "\nCD rendu");
-                } else {
-                    info_dialog("Problème rencontré");
-                }
+
 
             }
         } else {
@@ -567,17 +461,17 @@ public class Activity_administrateur extends AppCompatActivity {
 
 
 
-            user = table_user_online.get_user(Integer.parseInt(string_id_user));
+          /*  user = table_user_online.get_user(Integer.parseInt(string_id_user));
             list_cd_utilisateur = table_cd_online.list_cd_utilistaeur(Integer.parseInt(string_id_user));
             list_demande_emprunt = table_emprunt.demande_emprunt(Integer.parseInt(string_id_user));
             list_user = table_user_online.list_user();
-            list_cd = table_cd_online.list_cd();
+            list_cd = table_cd_online.list_cd();*/
             return null;
         }
 
         @Override
         protected void onPostExecute(Void result) {
-            mProgressDialog.hide();
+           /* mProgressDialog.hide();
             toolbar.setTitle("Bonjour " + user.getIdentifiant());
             //Génération des list d'items pour les différentes vues
             for (int i = 0; i < list_user.size(); i++) {
@@ -637,7 +531,7 @@ public class Activity_administrateur extends AppCompatActivity {
                     affichage_demande_emprunt();
                 }
 
-            }
+            }*/
         }
 
     }

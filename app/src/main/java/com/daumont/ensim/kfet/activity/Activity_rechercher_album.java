@@ -4,25 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.Volley;
 import com.daumont.ensim.kfet.R;
-import com.daumont.ensim.kfet.deezer.GsonRequest;
-import com.daumont.ensim.kfet.deezer.List_Album;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * PAR JONATHAN DAUMONT
@@ -35,7 +19,7 @@ public class Activity_rechercher_album extends AppCompatActivity {
      * Declaration variables
      **/
     //Elements graphiquess
-    private ListView list_view;
+   /* private ListView list_view;
     private Context context;
     private Toolbar toolbar;
     //tableaux & lists
@@ -46,16 +30,15 @@ public class Activity_rechercher_album extends AppCompatActivity {
     private RequestQueue queue;
     private GsonRequest<List_Album> gsonRequest;
     //Autres
-    private String string_id_artist;
-    private String nom_artist,string_id_user;
+    /*private String string_id_artist;
+    private String nom_artist,string_id_user;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Recuperation de l'interface
-        setContentView(R.layout.activity_rechercher_album);
-        list_view = (ListView) findViewById(R.id.listView_album);
+        /*list_view = (ListView) findViewById(R.id.listView_album);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         //Initialization
@@ -81,6 +64,7 @@ public class Activity_rechercher_album extends AppCompatActivity {
                     //Génération de la listview
                     for (int i = 0; i < list_album.getData().size(); i++) {
                         map = new HashMap<>();
+                        map.put("id_album", list_album.getData().get(i).getId());
                         map.put("id_album", list_album.getData().get(i).getId());
                         map.put("name_album", list_album.getData().get(i).getTitle());
                         map.put("cover", list_album.getData().get(i).getCover());
@@ -131,7 +115,7 @@ public class Activity_rechercher_album extends AppCompatActivity {
                 }
             });
             queue.add(gsonRequest);
-        }
+        }*/
     }
 
     /**
@@ -139,12 +123,12 @@ public class Activity_rechercher_album extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Activity_rechercher_album.this, Activity_rechercher_artiste.class);
+        /*Intent intent = new Intent(Activity_rechercher_album.this, Activity_rechercher_artiste.class);
         Bundle objetbunble = new Bundle();
         objetbunble.putString("id_user", string_id_user);
         intent.putExtras(objetbunble);
         startActivity(intent);
         overridePendingTransition(R.anim.pull_in_return, R.anim.push_out_return);
-        finish();
+        finish();*/
     }
 }
