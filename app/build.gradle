@@ -37,6 +37,6 @@ dependencies {
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
     compile 'com.elmargomez.typer:typerlib:1.0.0'
-    testCompile 'junit:junit:4.12'
     compile 'com.github.clans:fab:1.6.4'
+    testCompile 'junit:junit:4.12'
 }

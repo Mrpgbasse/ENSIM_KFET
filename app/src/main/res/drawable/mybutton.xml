@@ -3,10 +3,10 @@
 
     <gradient
         android:angle="225"
-        android:startColor="@color/colorBleufFonce"
-        android:endColor="@color/colorBleufFonce"/>
+        android:startColor="@color/SecondColorDark"
+        android:endColor="@color/SecondColorDark"/>
 
 
-    <stroke android:width="2dip" android:color="@color/colorBleufFonce"/>
+    <stroke android:width="2dip" android:color="@color/SecondColorDark"/>
 
 </shape>

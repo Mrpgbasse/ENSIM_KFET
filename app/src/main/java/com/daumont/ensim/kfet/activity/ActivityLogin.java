@@ -2,6 +2,7 @@ package com.daumont.ensim.kfet.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -63,10 +64,12 @@ public class ActivityLogin extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login = editText_login.getText().toString();
+               /* login = editText_login.getText().toString();
                 password = editText_password.getText().toString();
-                new Connexion().execute();
-
+                new Connexion().execute();*/
+                startActivity(new Intent(activity, ActivityAccueil.class));
+                overridePendingTransition(R.anim.pull_in, R.anim.push_out);
+                finish();
             }
         });
 
@@ -75,9 +78,12 @@ public class ActivityLogin extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 boolean handled = false;
                 if (actionId == EditorInfo.IME_ACTION_SEND) {
-                    login = editText_login.getText().toString();
+                   /* login = editText_login.getText().toString();
                     password = editText_password.getText().toString();
-                    new Connexion().execute();
+                    new Connexion().execute();*/
+                    startActivity(new Intent(activity, ActivityAccueil.class));
+                    overridePendingTransition(R.anim.pull_in, R.anim.push_out);
+                    finish();
                     handled = true;
                 }
                 return handled;
