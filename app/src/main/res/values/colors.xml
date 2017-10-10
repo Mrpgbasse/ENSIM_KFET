@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFA726</color>
-    <color name="colorPrimaryDark">#F57C00</color>
-    <color name="colorAccent">#F57C00</color>
+    <color name="colorPrimary">@color/SecondColorDark</color>
+    <color name="colorPrimaryDark">@color/SecondColorDark</color>
+    <color name="colorAccent">@color/SecondColorDark</color>
 
 
 
-    <color name="colorGrisFonce">#F57C00</color>
-    <color name="colorBleufFonce">#FFA726</color>
+    <color name="colorGrisFonce">@color/SecondColorDark</color>
+    <color name="colorBleufFonce">@color/SecondColorDark</color>
 
 
     <color name="SecondColorDark">#F57C00</color>
